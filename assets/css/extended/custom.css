@@ -1,0 +1,25 @@
+/* WordPress image alignment classes */
+.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.alignleft {
+    float: left;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+.alignright {
+    float: right;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* WordPress caption alignment */
+.wp-caption.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

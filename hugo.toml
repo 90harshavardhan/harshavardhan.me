@@ -1,0 +1,87 @@
+baseURL = 'https://harshavardhan.me/'
+locale = 'en-us'
+title = 'Harsha Vardhan'
+theme = 'PaperMod'
+paginate = 10
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+
+[params]
+  env = 'production'
+  mainSections = ["posts"]
+  title = 'Harsha Vardhan'
+  description = 'Engineering leader, AI builder, distributed systems thinker.'
+  author = 'Harsha Vardhan'
+  defaultTheme = 'auto'
+  disableThemeToggle = false
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowWordCount = false
+  ShowRssButtonInSectionTermList = true
+  UseHugoToc = true
+  disableSpecial1stPost = false
+  disableScrollToTop = false
+  comments = false
+  hidemeta = false
+  hideSummary = false
+  showtoc = true
+  tocopen = false
+  ShowMobileMenuOnDesktop = true
+
+  [params.homeInfoParams]
+    Title = 'Hi, I am Harsha 👋'
+    Content = 'Engineering leader with 15+ years building distributed systems, payments infrastructure, and AI products. Currently building in the open — agents, edge AI, and developer tools.'
+
+  [[params.socialIcons]]
+    name = 'linkedin'
+    url = 'https://www.linkedin.com/in/harshavardhanme'
+
+  [[params.socialIcons]]
+    name = 'github'
+    url = 'https://github.com/harshavardhanme'
+
+  [[params.socialIcons]]
+    name = 'rss'
+    url = '/index.xml'
+
+[menu]
+  [[menu.main]]
+    identifier = 'blog'
+    name = 'Blog'
+    url = '/posts/'
+    weight = 10
+
+  [[menu.main]]
+    identifier = 'projects'
+    name = 'Projects'
+    url = '/projects/'
+    weight = 20
+
+  [[menu.main]]
+    identifier = 'about'
+    name = 'About'
+    url = '/about/'
+    weight = 30
+
+  [[menu.main]]
+    identifier = 'search'
+    name = 'Search'
+    url = '/search/'
+    weight = 40
+
+[outputs]
+  home = ['HTML', 'RSS', 'JSON']
+
+[taxonomies]
+  category = 'categories'
+  tag = 'tags'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
