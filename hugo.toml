@@ -1,4 +1,4 @@
-baseURL = 'https://90harshavardhan.github.io/harshavardhan.me/'
+baseURL = 'https://harshavardhan.me/'
 locale = 'en-us'
 title = 'Harsha Vardhan'
 theme = 'PaperMod'
