@@ -2,12 +2,20 @@
 title: 15 August, Independence day
 author: Harsha Vardhan
 date: 2011-08-14T20:54:04+00:00
-draft: true
+draft: false
+slug: 15-august-independence-days
 categories:
-  - science-technology-social
+  - society
 
 ---
-<img src="/wp-content/uploads/2011/01/Flag_of_India.png" alt="Flag of Indian Republic" title="Flag of Indian Republic" style="display:block;margin:0 auto;" width="200" height="133" />
+<figure>
+<img src="/wp-content/uploads/2011/01/Flag_of_India.png" 
+alt="Flag of Indian Republic" 
+title="Flag of Indian Republic"
+style="display:block;margin:0 auto;" 
+width="200" height="133" />
+<figcaption style="text-align:center;">Flag of Indian Republic</figcaption>
+</figure>
 
 Celebrating 65th independence day today and remembering about every last independece day I had seen since my school days;  
 in my school flag hosting by principal,  
@@ -39,4 +47,5 @@ I have hopes in me, in you, and in our nation.
 AMEN!!!  
 HAPPY INDEPENDENCE DAY!!!
 
- 
+Cheers!<br>
+-Harsha Vardhan

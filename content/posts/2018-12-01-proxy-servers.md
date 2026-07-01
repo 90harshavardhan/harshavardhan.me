@@ -1,11 +1,11 @@
 ---
 title: Proxy Servers
 author: Harsha Vardhan
-date: 2018-12-01T10:25:06+00:00
+date: 2026-07-01T10:51:00+00:00
 draft: true
+slug: proxy-servers
 categories:
-  - system-design-architecture
-  - system-performance-scalability
+  - technology
 tags:
   - anonymous proxy
   - forwarding proxy
@@ -13,40 +13,225 @@ tags:
   - proxy server
   - reverse proxy
   - transparent proxy
+---
+
+We often hear the term **proxy** — in tech conversations, in network 
+settings, in VPN apps. But here's a fun fact: long before our introduction 
+to computer systems, most of us used this word since school. When a present 
+fellow student responded "here" on behalf of a missing classmate during 
+attendance, we said he *marked proxy*. Simple, relatable, and slightly 
+illegal 😄.
+
+<figure>
+<img src="/wp-content/uploads/2026/07/proxy_attendance.png" 
+alt="Classroom attendance proxy" 
+style="display:block;margin:0 auto;max-width:100%;"/>
+<figcaption style="text-align:center;">The original proxy — marking attendance for an absent friend</figcaption>
+</figure>
+
+## What is a Proxy?
+
+In plain English — a proxy is someone or something that acts on your behalf, 
+sitting in between you and whoever you're trying to reach. You never directly 
+interact with the other side — everything goes through the proxy.
+
+A few more real-life examples you may recognize:
+
+- **Secretary / Personal Assistant** — calls come in for the boss, the 
+  secretary takes the message, consults the boss, and responds back. The 
+  caller never directly reaches the boss. *(Reverse Proxy)*
+- **Lawyer in court** — the lawyer speaks on behalf of the client. The judge 
+  never directly addresses the client. *(Forward Proxy)*
+- **Real estate broker** — buyer and seller never directly negotiate. The 
+  broker carries messages both ways. *(Can be either)*
+- **VPN service** — your device connects to a VPN server, which connects to 
+  the website on your behalf. The website only sees the VPN's IP, not yours. 
+  *(Forward Proxy)*
+
+> *In a dictionary:* Proxy — "the authority to represent someone else, 
+> or a person authorized to act on behalf of another."
+
+## Proxy Servers — How Does This Apply to Computer Systems?
+
+In computer networks, a proxy server works exactly the same way as our 
+real-life examples — it sits between a client (your browser, app, or device) 
+and a server (a website, API, or database). The client sends its request to 
+the proxy, the proxy forwards it to the server, gets the response, and sends 
+it back to the client. The client and server never directly communicate.
+
+### How are proxy servers classified?
+
+There is no canonical, standards-body list. In practice, technical literature 
+classifies proxies along six recurring axes, with rotation behavior often 
+treated as a seventh:
+
+1. **By traffic direction** — forward vs. reverse
+2. **By anonymity level** — transparent, anonymous/distorting, elite
+3. **By protocol / OSI layer** — HTTP, HTTPS/SSL, SOCKS (4/5), plus the 
+   L4 vs. L7 distinction
+4. **By IP source** — datacenter, residential, mobile, ISP/static-residential
+5. **By service / function** — caching, gateway, content-filter, load 
+   balancer, API gateway, CDN, SMTP, DNS, SIP, etc.
+6. **By access model** — public/open, shared, dedicated/private
+7. **By rotation behavior** — static, rotating, sticky-session
+
+A real-world proxy is typically described by picking one value from each 
+axis — for example, "an elite, rotating, residential, SOCKS5 forward proxy" 
+is one thing described across four axes simultaneously.
+
+### The authoritative standard — RFC 9110
+
+The most authoritative anchor comes from RFC 9110 (the current HTTP 
+standard), which defines exactly three forms of HTTP intermediary in §3.7:
+
+> *"There are three common forms of HTTP 'intermediary': proxy, gateway, 
+> and tunnel."*
+
+- **Proxy** — "a message-forwarding agent that is chosen by the client, 
+  usually via local configuration rules." This is what we call a 
+  **forward proxy** — the client knowingly routes traffic through it.
+
+- **Gateway (reverse proxy)** — "an intermediary that acts as an origin 
+  server for the outbound connection but translates received requests and 
+  forwards them inbound to another server or servers." The client has no 
+  knowledge of what lies behind the gateway.
+
+- **Tunnel** — "acts as a blind relay between two connections without 
+  changing the messages." A tunnel passes bytes completely unmodified — 
+  the classic example is when a forward proxy handles HTTPS traffic via 
+  the HTTP `CONNECT` method.
+
+Everything else in the industry vocabulary — load balancers, API gateways, 
+CDNs, anonymous proxies, SOCKS proxies — is a refinement of these three.
+
+
+<figure>
+<img src="/wp-content/uploads/2026/07/forward_reverse_proxy.png" 
+alt="Forward and Reverse Proxy diagram" 
+style="display:block;margin:0 auto;max-width:100%;"/>
+<figcaption style="text-align:center;">Forward and Reverse Proxy — Generated using OpenAI gpt-image-2</figcaption>
+</figure>
+
+## Forward Proxy
+
+A forward proxy is chosen by the client and sits between the client and 
+the internet. The client is fully aware it is using a proxy — it 
+intentionally routes its requests through it. The server on the other end 
+sees the proxy's IP, not the client's.
+
+**Common uses:**
+- **Anonymity** — hiding the client's real IP address from the destination 
+  server
+- **Content filtering** — corporate networks and schools use forward proxies 
+  to block access to certain websites
+- **Caching** — repeated requests for the same resource are served from 
+  the proxy's cache, saving bandwidth
+- **Bypassing geo-restrictions** — accessing content that is blocked in 
+  the client's region by routing through a proxy in a different location
+
+**Types of forward proxy by anonymity level:**
+
+- **Transparent proxy** — identifies itself as a proxy and passes the 
+  client's real IP via HTTP headers. The client may not even know it is 
+  being proxied. Used mainly for caching and content filtering, not 
+  anonymity.
+
+- **Anonymous proxy** — hides the client's real IP but still signals that 
+  a proxy is being used (via the `Via` header). The server knows a proxy 
+  is involved but not who the real client is. Remember accessing websites 
+  blocked by your school or college firewall? That was likely an anonymous 
+  proxy at work.
+
+- **Elite / High-anonymity proxy** — strips all identifying headers so the 
+  request appears to be a direct connection. The server has no idea a proxy 
+  is involved. The strongest anonymity level — used by VPNs and tools like 
+  Tor.
+
+**Note:** These anonymity tiers apply only to HTTP proxies. SOCKS proxies 
+operate at a lower network layer and don't insert HTTP headers at all — 
+making SOCKS5 inherently more anonymous than HTTP-level proxies for many 
+use cases.
 
 ---
-A proxy server is a process that acts as an intermediary for requests from clients seeking resources from other servers. A proxy server can be a dedicated computer system for the job or merely an application running on a system along with other tasks performed by the system. Sometimes it can be a process running on the client system as well.
 
-Other than one basic established fact that they exist to ensure that request and response passes through them there is no strict guideline on the roles or activities they may perform. Their job can be a mix of many activities/categories described below.
+## Reverse Proxy (Gateway)
 
-If it may help Proxy Servers can be considered as an employee of an company with mixed set of responsibilities of a receptionist, as intercom call router, security personal at gate, an access card swipe machine which needs card to be swiped every-time someone passes through a door. We can broadly classify them in following categories:
+A reverse proxy sits in front of servers, not clients. The client has no 
+idea it is talking to a proxy — it believes it is communicating directly 
+with the origin server. The reverse proxy accepts requests, forwards them 
+to one or more backend servers, and returns the response as if it came 
+from itself.
 
-#### 1. Gateway (or tunnelling) proxy:
+**Common uses:**
+- **Load balancing** — distributes incoming traffic across multiple backend 
+  servers, ensuring no single server is overwhelmed
+- **Collapsed forwarding** — when multiple clients request the same data, 
+  the proxy collapses them into a single upstream request and returns the 
+  result to all waiting clients — reducing load on the origin server
+- **Static caching** — offloads servers by caching static content like 
+  images and CSS files, serving them directly without hitting the origin
+- **Compression** — compresses responses before sending to clients, 
+  speeding up load times
+- **SSL/TLS termination** — handles SSL termination for multiple backend 
+  servers, removing the need for individual SSL certificates on each server
+- **Protocol translation** — bridges between different protocols or 
+  network systems
 
-They pass requests and responses unmodified. They are used as protocol translators, impedance matching devices, rate converters, fault isolators, firewalls or signal translators.
+**The reverse proxy family** — in modern infrastructure, reverse proxies 
+have evolved into several specialized forms:
 
-#### 2. Forward proxy:
+- **Load Balancer** — focuses purely on distributing traffic across a 
+  backend pool, operating at L4 (TCP/UDP) or L7 (HTTP-aware routing)
+- **API Gateway** — adds authentication, rate limiting, quotas, request 
+  validation, and analytics on top of routing; the right default for 
+  microservices architectures
+- **CDN (Content Delivery Network)** — a globally distributed network of 
+  reverse-proxy/cache nodes that serve cached content near users and absorb 
+  traffic spikes
 
-It is an Internet-facing proxy used to retrieve data from a wide range of sources. This can be further classified in two categories:
+A single piece of software (nginx, Envoy, HAProxy) can simultaneously act 
+as a reverse proxy, load balancer, and caching layer — these are overlapping 
+functions, not separate machines.
 
-##### 2.1 Anonymous Proxy –
+---
 
-Thіs type of server reveаls іts іdentіty аs а server but does not dіsclose the іnіtіаl IP аddress. It allows users to conceal their IP address while browsing the Web or using other Internet services. This is like a security personal allows you to go in and walk out without asking for your ID card(I think, this guys is like a Church security guy who doesn&#8217;t care who you are). How else had you been browsing websites(e.g. Facebook etc) from your school/college computer which were blocked by Firewalls.
+## Modern Usage of Proxy Servers
 
-##### 2.2 Trаnspаrent Proxy –
+Proxy servers have evolved far beyond simple traffic routing. Here is how 
+they show up in modern infrastructure:
 
-Thіs type of proxy server аgаіn іdentіfіes іtself, аnd wіth the support of HTTP heаders, the fіrst IP аddress cаn be vіewed. The mаіn benefіt of usіng thіs sort of server іs іts аbіlіty to cаche the websіtes. Sometіmes, your IP mаy get bаnned аs а result of the use of trаnspаrent proxy. Your Internet Protocol аddress іs not hіdden іn thіs server.
+**Security and Zero Trust**
+Proxies are central to Zero Trust architecture — every request, even from 
+inside the network, is intercepted and validated by a proxy before reaching 
+the destination. Web Application Firewalls (WAFs) are reverse proxies that 
+inspect HTTP traffic for attacks.
 
-#### 3. Reverse Proxy:
+**Service Mesh**
+In microservices architectures, a sidecar proxy (like Envoy in Istio) is 
+deployed alongside every service instance. All inter-service traffic passes 
+through these proxies, giving you observability, traffic control, and mutual 
+TLS without changing application code.
 
-This is an interesting one. As it exists to help or protect and internal network of hosts. Reverse proxies forward requests to one or more ordinary servers which handle the request. The response from the proxy server is returned as if it came directly from the original server, leaving the client with no knowledge of the origin servers. Reverse proxies are installed in the neighbourhood of one or more web/application servers.<figure id="attachment_364" aria-describedby="caption-attachment-364" style="width: 220px" class="wp-caption aligncenter">
+**AI and LLM Traffic Management**
+Increasingly, proxies are being used to manage traffic to LLM APIs — 
+routing requests to different model providers, caching responses, enforcing 
+rate limits, and logging prompts for compliance. Tools like LiteLLM and 
+Portkey act as forward proxies for AI APIs.
 
-<img loading="lazy" decoding="async" class="wp-image-364 size-full" src="/wp-content/uploads/2018/12/220px-Reverse_proxy_h2g2bob.svg_.png" alt="Reverse Proxy" width="220" height="83" /> <figcaption id="caption-attachment-364" class="wp-caption-text">Reverse Proxy</figcaption></figure> 
+**Privacy and Anonymity at Scale**
+Tor's onion proxy routes traffic through at least three relays with layered 
+encryption — the guard relay is the only one that knows the client's IP, 
+and the exit relay is the only one that knows the target. Very high anonymity, 
+at the cost of higher latency.
 
-  * Load balancing: It can distribute the load to several web servers, each web server serving its own application area.
-  * Collapsed forwarding: When coordinating requests from multiple servers and can be used to optimize request traffic from a system-wide perspective. We can collapse the same (or similar) data access requests into one request and then return the single result to the user.
-  * Static Caching: It can offload the web servers by caching static content like pictures and other static graphical content.
-  * Compression: Optimize and compress the content to speed up the load time.
-  * Encryption / SSL acceleration: A host can provide a single &#8220;SSL proxy&#8221; to provide SSL encryption for an arbitrary number of hosts; removing the need for a separate SSL Server Certificate for each host.
+**Data Collection and Scraping**
+Residential and rotating proxies are widely used for web scraping, price 
+monitoring, and market research — using real ISP-assigned IPs to avoid 
+detection, rotating them per request to avoid rate limiting.
 
-_**Further thoughts:**_ Another great way to use the proxy is to collapse requests for data that is spatially close together in the storage (consecutively on disk). This strategy will result in decreasing request latency. If a bunch of servers request parts of file. We can set up our proxy in such a way that it can recognize the spatial locality of the individual requests, thus collapsing them into a single request and reading complete file, which will greatly minimize the reads from the data origin.
+**Spatial Locality Optimization**
+A proxy can collapse requests for data that is spatially close together in 
+storage. If multiple servers request different parts of the same file, a 
+smart proxy recognizes the spatial locality, collapses them into a single 
+read, and distributes the results — significantly reducing latency and 
+minimizing reads from the data origin.

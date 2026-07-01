@@ -1,38 +1,69 @@
 ---
-title: Microsoft acquiring Github; the cat going inside the window
+title: 'Microsoft Acquiring GitHub: The Cat Going Inside the Window'
 author: Harsha Vardhan
 date: 2018-06-05T02:45:20+00:00
-draft: true
+draft: false
+slug: microsoft-acquiring-github
 categories:
-  - science-technology-social
+  - technology
 tags:
   - acquisition
   - github
   - microsoft
+---
+
+*Editor's note (2026): Eight years later, the answer to "is this a 
+win-win?" is a clear yes. GitHub has thrived under Microsoft — GitHub 
+Actions, Copilot, and Codespaces are now central to how millions of 
+developers work. The cat grew into quite the mouser.*
 
 ---
-## Proverb-ish:
 
-Once a Cat walked inside a Window; owners said now it will grow on the skills of catching mice&#8230; and village surrounding the house will be stronger!!!
+## Proverb-ish
 
-<img loading="lazy" decoding="async" class="aligncenter wp-image-292 size-medium" src="/wp-content/uploads/2018/06/window-cat1-210x300.jpg" alt="Cat Inside a Window" width="210" height="300" srcset="/wp-content/uploads/2018/06/window-cat1-210x300.jpg 210w, /wp-content/uploads/2018/06/window-cat1.jpg 422w" sizes="auto, (max-width: 210px) 100vw, 210px" /> 
+Once a cat walked inside a window. The owners said it would grow on the 
+skill of catching mice — and the village surrounding the house would 
+become stronger.
 
-<img loading="lazy" decoding="async" class="aligncenter wp-image-290 size-thumbnail" src="/wp-content/uploads/2018/06/github-150x150.jpg" alt="Github Logo" width="150" height="150" srcset="/wp-content/uploads/2018/06/github-150x150.jpg 150w, /wp-content/uploads/2018/06/github-100x100.jpg 100w" sizes="auto, (max-width: 150px) 100vw, 150px" /><img loading="lazy" decoding="async" class="aligncenter wp-image-291 size-full" src="/wp-content/uploads/2018/06/microsoft.jpg" alt="Microsoft Logo" width="436" height="116" srcset="/wp-content/uploads/2018/06/microsoft.jpg 436w, /wp-content/uploads/2018/06/microsoft-300x80.jpg 300w" sizes="auto, (max-width: 436px) 100vw, 436px" /> 
+<figure>
+<img src="/wp-content/uploads/2018/06/window-cat1.jpg" 
+alt="Cat Inside a Window" width="210" height="300"
+style="display:block;margin:0 auto;"/>
+</figure><br>
 
-## The announcement:
+<figure style="text-align:center;">
+<img src="/wp-content/uploads/2018/06/github-150x150.jpg" 
+alt="GitHub Logo" width="150" height="150" style="display:inline-block;margin:0 10px;"/>
+<img src="/wp-content/uploads/2018/06/microsoft.jpg" 
+alt="Microsoft Logo" width="218" height="58" style="display:inline-block;margin:0 10px;vertical-align:middle;"/>
+</figure>
 
-[_Satya Nadella_][1] _announced_:  
-[Microsoft + GitHub = Empowering Developers https://blogs.microsoft.com/blog/2018/06/04/microsoft-github-empowering-developers/][2]
+## The Announcement
 
-## Story:
+[Satya Nadella][1] announced: [Microsoft + GitHub = Empowering 
+Developers][2].
 
-[Github][3] acquisition; One of the milestone acquisition of the history and industry, I feel.
+## Story
 
-Millions have crossed the teenage and adulthood with [Github.][3] We honed new skills and world&#8217;s most important source code bases grew stronger with [Github][3]. Geeks from different parts of the world met here to do wonders. Github become geek&#8217;s social hangout page and their pride geeky identity. Code URL are remembered as relative path after https://github.com/. It has become a _de facto_ of Open Source code developers and was a joyfully accepted synonym for code repository.
+[GitHub][3] acquisition — one of the milestone acquisitions of the history 
+and industry, I feel.
 
-Lets see if this acquisition is win-win for everyone (Millions of developers, Third party tool developers, [Github][3] founders and [Microsoft][4]) or a subset of them? Fingers crossed!
+Millions have crossed teenage years and adulthood with [GitHub][3]. We 
+honed new skills, and the world's most important source code bases grew 
+stronger with GitHub. Geeks from different parts of the world met here to 
+do wonders. GitHub became the geek's social hangout page and their proud 
+geeky identity. Code URLs are remembered as relative paths after 
+github.com/. It has become a de facto standard for open source developers 
+and a joyfully accepted synonym for code repository.
 
- [1]: https://x.com/satyanadella
- [2]: https://x.com/satyanadella/status/1003622781831950336
- [3]: https://en.wikipedia.org/wiki/GitHub
- [4]: https://en.wikipedia.org/wiki/Microsoft
+Let's see if this acquisition is win-win for everyone — millions of 
+developers, third party tool developers, GitHub founders, and [Microsoft][4] 
+— or just a subset of them. Fingers crossed!
+
+-Cheers,
+Harsha Vardhan
+
+[1]: https://x.com/satyanadella
+[2]: https://blogs.microsoft.com/blog/2018/06/04/microsoft-github-empowering-developers/
+[3]: https://en.wikipedia.org/wiki/GitHub
+[4]: https://en.wikipedia.org/wiki/Microsoft

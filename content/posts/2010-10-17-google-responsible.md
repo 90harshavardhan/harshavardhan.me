@@ -2,9 +2,11 @@
 title: Google is not responsible…I think
 author: Harsha Vardhan
 date: 2010-10-17T10:14:37+00:00
-draft: true
+draft: false
+slug: google-responsible
 categories:
-  - science-technology-social
+  - fun
+  - personal
 tags:
   - awesome
   - google
@@ -12,7 +14,7 @@ tags:
 
 ---
 [Google][1] is not responsible for people hitting wrong results in the search of true [happiness][2].  
-&#8211;[Harsha][3]
+&#8211;[Harsha Vardhan][3]
 
 [Gravitation][4] is not responsible for people falling in [love][5].  
 &#8211;[Albert Einstein][6]

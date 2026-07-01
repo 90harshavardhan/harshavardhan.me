@@ -2,9 +2,10 @@
 title: Hello world!
 author: Harsha Vardhan
 date: 2010-09-19T16:19:59+00:00
-draft: true
+draft: false
+slug: hello-world
 categories:
-  - science-technology-social
+  - personal
 tags:
   - hello world
 
@@ -18,13 +19,14 @@ tags:
 </p>
 
 <p style="text-align: justify;">
-  <em>Content I shall post, might appear here one fine day but they are something I might had thought over or written as careless scrap somewhere or written in my diary or discussed with friends or wondered about or pondered upon or read about or spend my thoughts and time in some way long time back and what you see are just the consequences</em><em>.</em> This is almost true with most of the things which happen around us, yet I felt like re-iterating it. Guess I took quite long to set up this forum but as I said <em>FINALLY HELLO WORLD!</em> :-). I had always wanted a nice forum to share views with you all. <em>I have found it.</em>
+  <em>Content I shall post, might appear here one fine day but they are something I might had thought over or written as careless scrap somewhere or written in my diary or discussed with friends or wondered about or pondered upon or read about or spend my thoughts and time in some way long time back and what you see are just the consequences</em><em>.</em> This is almost true with most of the things which happen around us, yet I felt like re-iterating it. Guess I took quite long to set up this forum but as I said <em>FINALLY HELLO WORLD!</em> :-). I had always wanted a nice forum to share views with you all. <em>And I have found it.</em>
 </p>
 
 <p style="text-align: justify;">
-  I will keep posting here and you keep posting your comments.I will keep posting here and you keep posting your comments.Let&#8217;s walk & crawl together over <em>www</em>.
+  I will keep posting here and you keep posting your comments. I will keep posting here and you keep posting your comments. Let&#8217;s walk & crawl together over the <em>www</em>.
 </p>
 
 <p style="text-align: justify;">
-  Cheers! -Harsha
+  Cheers! 
+  -Harsha Vardhan
 </p>
